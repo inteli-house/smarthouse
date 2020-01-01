@@ -61,22 +61,38 @@ All double values are assumed to have one decimal point and are converted to Int
 **byte [1]  = 0x55** 							*//header byte used for delimiter
 
 ####  Payload data (23 bytes):
-**byte [0-7]  = registrationID** 				*//unique user registration ID 8 bytes. (obtained via mobile app)*
-**byte[8]	  = protocolVersion**     			*//protocol version, fixed value of 0x11*
-**byte[9] 	  = functionStream**				*//basic function, fixed value of 0x01*
-**byte[10]	  = temperatureHighNibble** 		*//temperature sensor high nibble*
-**byte[11]    = temperatureLowNibble**  		*//temperature sensor  low nibble*
-**byte[12]    = digitalInputAggregatedBits**	*//digital input bits 0-7*
-**byte[13]    = analogInput1HighNibble**   		*//analog input 1 high nibble*
-**byte[14]    = analogInput1LowNibble**         *//analog input 1 low nibble*
-**byte[15]    = analogInput2HighNibble**    	*//analog input 2 high nibble*
-**byte[16]    = analogInput2LowNibble**         *//analog input 2 low nibble*
-**byte[17]    = analogInput3HighNibble**   	    *//analog input 3 high nibble*
-**byte[18]    = analogInput3LowNibble**         *//analog input 3 low nibble*
-**byte[19]    = analogInput4HighNibble**   	    *//analog input 4 high nibble*
-**byte[20]    = analogInput4LowNibble**         *//analog input 4 low nibble*
-**byte[21]    = outputAggregatedBits**			*//digital output bits 0-7*
-**byte[22]    = Crc8**					     	*//CRC 8 calculation of the payload data*
+**byte [0-7]  = registrationID** 				
+*//unique user registration ID 8 bytes. (obtained via mobile app)*
+**byte[8]	  = protocolVersion**     			
+*//protocol version, fixed value of 0x11*
+**byte[9] 	  = functionStream**				
+*//basic function, fixed value of 0x01*
+**byte[10]	  = temperatureHighNibble** 		
+*//temperature sensor high nibble*
+**byte[11]    = temperatureLowNibble**  		
+*//temperature sensor  low nibble*
+**byte[12]    = digitalInputAggregatedBits**	
+*//digital input bits 0-7*
+**byte[13]    = analogInput1HighNibble**   		
+*//analog input 1 high nibble*
+**byte[14]    = analogInput1LowNibble**         
+*//analog input 1 low nibble*
+**byte[15]    = analogInput2HighNibble**    	
+*//analog input 2 high nibble*
+**byte[16]    = analogInput2LowNibble**         
+*//analog input 2 low nibble*
+**byte[17]    = analogInput3HighNibble**   	    
+*//analog input 3 high nibble*
+**byte[18]    = analogInput3LowNibble**         
+*//analog input 3 low nibble*
+**byte[19]    = analogInput4HighNibble**   	    
+*//analog input 4 high nibble*
+**byte[20]    = analogInput4LowNibble**         
+*//analog input 4 low nibble*
+**byte[21]    = outputAggregatedBits**			
+*//digital output bits 0-7*
+**byte[22]    = Crc8**					     	
+*//CRC 8 calculation of the payload data*
 
 ####  Complete request datagram:
 Full data request contains:  2 header bytes + base64(payload) + Null character  
@@ -85,16 +101,26 @@ for ex.  {0x55, 0x55, base64(payload), '\0'}
 ### 2. Response specification
 
 ####  Payload data (10 bytes):
-**byte[0] 	 = functionStream**					*//basic function, fixed value of 0x01*
-**byte[1]    = outputAggregatedBits**			*//digital output bits 0-7*
-**byte[2]    = settingsAggregatedBits**			*//aggregated state heatEnabled = bit 0, tempInvert = bit 1*
-**byte[3]    = setpointHighNibble**				*//temperatue setpoing high nibble*
-**byte[4]    = setpointLowNibble**				*//temperature setpoing low nibble*
-**byte[5]    = hysteresisHighNibble**			*//temperature hysteresis high nibble*
-**byte[6]    = hysteresisLowNibble**			*//temperature hysteresis low nibble*
-**byte[7]    = tempOffsetHighNibble**			*//temperature offset high nibble*
-**byte[8]    = tempOffsetLowNibble**			*//temperature offset low nibble*
-**byte[9]    = Crc8**					     	*//CRC 8 calculation of the payload data*
+**byte[0] 	 = functionStream**					
+*//basic function, fixed value of 0x01*
+**byte[1]    = outputAggregatedBits**			
+*//digital output bits 0-7*
+**byte[2]    = settingsAggregatedBits**			
+*//aggregated state heatEnabled = bit 0, tempInvert = bit 1*
+**byte[3]    = setpointHighNibble**				
+*//temperatue setpoing high nibble*
+**byte[4]    = setpointLowNibble**				
+*//temperature setpoing low nibble*
+**byte[5]    = hysteresisHighNibble**			
+*//temperature hysteresis high nibble*
+**byte[6]    = hysteresisLowNibble**			
+*//temperature hysteresis low nibble*
+**byte[7]    = tempOffsetHighNibble**			
+*//temperature offset high nibble*
+**byte[8]    = tempOffsetLowNibble**			
+*//temperature offset low nibble*
+**byte[9]    = Crc8**					     	
+*//CRC 8 calculation of the payload data*
 
 ####  Complete response datagram:
 Full data response contains:   base64(payload)
