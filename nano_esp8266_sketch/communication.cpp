@@ -67,7 +67,7 @@ int parseReceived(char *resultDecoded) { //parse received array from server
 
   switch  (resultDecoded[0]) {
     case FUNC_STREAM:
-
+      out1 = resultDecoded[1] >> 0 & 0x01;
       out2 = resultDecoded[1] >> 1 & 0x01;
       out3 = resultDecoded[1] >> 2 & 0x01;
       out4 = resultDecoded[1] >> 3 & 0x01;
